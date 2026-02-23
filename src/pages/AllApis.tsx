@@ -82,9 +82,18 @@ const apiCategories = [
     ],
   },
   {
+    title: "Property & Land Verification",
+    icon: Shield,
+    path: "/services/property-land",
+    groups: [
+      { label: "Property Checks", items: ["Property Ownership Verification", "Land Record Search", "Encumbrance Certificate Check", "Title Document Verification"] },
+      { label: "Compliance & Valuation", items: ["RERA Registration Verification", "Property Tax Payment Status", "Circle Rate / Guideline Value", "Builder / Developer Verification"] },
+    ],
+  },
+  {
     title: "Industry Bundled APIs",
     icon: BarChart3,
-    path: "#bundles",
+    path: "/services/industry-bundles",
     groups: [
       { label: "Pre-built Bundles", items: ["Fintech Bundle — KYC + Bank + AML + Credit + Income", "Lending / NBFC Bundle — KYC + Telecom + Bank + Credit + Fraud", "Banking Bundle — CKYC + AML + KYB + Income + Credit", "Insurance Bundle — KYC + Income + Document AI + AML", "E-commerce Bundle — KYC + GST + Address + Fraud + RC/DL", "Telecom Bundle — KYC + Face Liveness + Address + AML"] },
     ],

@@ -26,8 +26,10 @@ const serviceCategories = [
   { name: "Employment & Education", path: "/services/employment-education", icon: GraduationCap },
   { name: "Legal & Criminal", path: "/services/legal-criminal", icon: FileCheck },
   { name: "Vehicle & Mobility", path: "/services/vehicle-mobility", icon: Truck },
+  { name: "Property & Land", path: "/services/property-land", icon: Home },
   { name: "Document AI", path: "/services/document-ai", icon: Code2 },
   { name: "Risk & Fraud", path: "/services/risk-fraud", icon: Zap },
+  { name: "Industry Bundles", path: "/services/industry-bundles", icon: BookOpen },
 ];
 
 const Header = () => {
