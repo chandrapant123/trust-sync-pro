@@ -1,11 +1,12 @@
 import { Navigate, Outlet, Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { Shield, LayoutDashboard, FileText, Settings, LogOut } from "lucide-react";
+import { Shield, LayoutDashboard, FileText, Settings, LogOut, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Dashboard", path: "/admin/dashboard", icon: LayoutDashboard },
   { label: "Pages", path: "/admin/pages", icon: FileText },
+  { label: "Blog Posts", path: "/admin/blog", icon: BookOpen },
   { label: "SEO Settings", path: "/admin/seo", icon: Settings },
 ];
 
