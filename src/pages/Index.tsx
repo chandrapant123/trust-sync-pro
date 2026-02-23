@@ -45,12 +45,12 @@ const steps = [
 
 const Index = () => (
   <Layout>
-    <SEOHead title="India's Most Trusted Verification & KYC API Platform | BharateVerify" description="Instantly verify identity, financial data, business credentials, and background risk with secure, real-time APIs built for fintech, banks, NBFCs, insurance, telecom, e-commerce, and enterprises." />
+    <SEOHead title="India's Most Trusted Verification & KYC API Platform | VeriSekure" description="Instantly verify identity, financial data, business credentials, and background risk with secure, real-time APIs built for fintech, banks, NBFCs, insurance, telecom, e-commerce, and enterprises." />
 
     {/* Hero */}
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroBg} alt="BharateVerify verification network" className="h-full w-full object-cover" />
+        <img src={heroBg} alt="VeriSekure verification network" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-primary/70" />
       </div>
       <div className="container relative z-10 mx-auto px-4 py-24 lg:px-8 lg:py-36">
@@ -205,7 +205,7 @@ const Index = () => (
         <h2 className="text-center font-heading text-3xl font-bold text-foreground md:text-4xl">What Our Customers Say</h2>
         <div className="mx-auto mt-12 grid max-w-4xl gap-8 md:grid-cols-2">
           {[
-            { quote: "BharateVerify reduced our onboarding fraud dramatically while improving approval speed.", author: "Fintech Risk Head" },
+            { quote: "VeriSekure reduced our onboarding fraud dramatically while improving approval speed.", author: "Fintech Risk Head" },
             { quote: "Integration was seamless, and compliance audits became much easier.", author: "NBFC Operations Lead" },
           ].map((t) => (
             <div key={t.author} className="rounded-xl border border-border bg-card p-6">
@@ -222,7 +222,7 @@ const Index = () => (
       <div className="container mx-auto px-4 text-center lg:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
           <h2 className="font-heading text-3xl font-bold text-primary-foreground md:text-4xl text-balance">Ready to Build a Fraud-Free, Compliant Digital Business?</h2>
-          <p className="mt-4 text-lg text-primary-foreground/80">Join the growing ecosystem of companies using BharateVerify to power secure onboarding, smarter risk decisions, and trusted growth.</p>
+          <p className="mt-4 text-lg text-primary-foreground/80">Join the growing ecosystem of companies using VeriSekure to power secure onboarding, smarter risk decisions, and trusted growth.</p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Button variant="hero" size="lg" asChild><Link to="/contact">Get API Access <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
             <Button variant="hero-outline" size="lg" asChild><Link to="/contact">Book a Demo</Link></Button>

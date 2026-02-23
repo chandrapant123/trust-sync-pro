@@ -21,7 +21,7 @@ const Contact = () => {
 
   return (
     <Layout>
-      <SEOHead title="Contact BharateVerify | Get API Access & Schedule a Demo" description="Get in touch with BharateVerify for API access, demos, pricing, and partnership inquiries. We're here to help you build trusted digital experiences." />
+      <SEOHead title="Contact VeriSekure | Get API Access & Schedule a Demo" description="Get in touch with VeriSekure for API access, demos, pricing, and partnership inquiries." />
 
       <section className="gradient-hero py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
@@ -57,7 +57,7 @@ const Contact = () => {
                   <Mail className="mt-0.5 h-5 w-5 text-accent" />
                   <div>
                     <p className="text-sm font-semibold text-foreground">Email</p>
-                    <p className="text-sm text-muted-foreground">contact@bharateverify.in</p>
+                    <p className="text-sm text-muted-foreground">contact@verisekure.com</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-5">

@@ -16,13 +16,13 @@ const values = [
 
 const About = () => (
   <Layout>
-    <SEOHead title="About BharateVerify | India's Trusted KYC & Verification Platform" description="Learn about BharateVerify's mission to power trust in India's digital economy through real-time identity, financial, and business verification APIs." />
+    <SEOHead title="About VeriSekure | India's Trusted KYC & Verification Platform" description="Learn about VeriSekure's mission to power trust in India's digital economy through real-time identity, financial, and business verification APIs." />
 
     <section className="gradient-hero py-20 lg:py-28">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.6 }} className="mx-auto max-w-3xl text-center">
           <h1 className="font-heading text-3xl font-bold text-primary-foreground md:text-5xl">Powering Trust in India's Digital Economy</h1>
-          <p className="mt-6 text-lg text-primary-foreground/80">BharateVerify is India's unified verification platform — helping businesses onboard genuine customers, prevent fraud, and stay compliant at scale.</p>
+          <p className="mt-6 text-lg text-primary-foreground/80">VeriSekure is India's unified verification platform — helping businesses onboard genuine customers, prevent fraud, and stay compliant at scale.</p>
         </motion.div>
       </div>
     </section>
@@ -32,7 +32,7 @@ const About = () => (
         <div className="mx-auto max-w-3xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">Our Mission</h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">As India rapidly digitizes across fintech, banking, e-commerce, healthcare, and government services, the need for instant, reliable verification has never been greater. BharateVerify was founded to solve this critical challenge.</p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">As India rapidly digitizes across fintech, banking, e-commerce, healthcare, and government services, the need for instant, reliable verification has never been greater. VeriSekure was founded to solve this critical challenge.</p>
             <p className="mt-4 text-muted-foreground leading-relaxed">We provide a single, secure platform that enables organizations of all sizes to verify identities, validate financial data, authenticate businesses, and screen for risk — all in real time, with full regulatory compliance.</p>
             <p className="mt-4 text-muted-foreground leading-relaxed">Our APIs are trusted by fintech leaders, banks, NBFCs, insurers, e-commerce platforms, and government programs across India, processing millions of verifications securely every day.</p>
           </motion.div>
@@ -60,7 +60,7 @@ const About = () => (
     <section className="py-16 lg:py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">Why Choose BharateVerify?</h2>
+          <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">Why Choose VeriSekure?</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 text-left">
             {["Pan-India coverage across 500+ verification types", "Sub-second API response times with 99.9% uptime", "RBI, AML, KYC, and data protection compliant", "Enterprise-grade encryption and security", "Developer-friendly REST APIs with SDKs", "Flexible pricing from startups to enterprises"].map((item) => (
               <div key={item} className="flex items-start gap-3">

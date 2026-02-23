@@ -1,0 +1,146 @@
+export interface ServiceCategory {
+  slug: string;
+  seoTitle: string;
+  metaDescription: string;
+  headline: string;
+  intro: string;
+  services: { name: string; desc: string }[];
+  ctaText: string;
+}
+
+export const serviceCategories: Record<string, ServiceCategory> = {
+  "identity-kyc": {
+    slug: "identity-kyc",
+    seoTitle: "Identity & KYC Verification APIs | VeriSekure",
+    metaDescription: "Verify Aadhaar, PAN, Voter ID, Passport, Driving License, CKYC, face liveness, mobile, email, and address in real-time with VeriSekure APIs.",
+    headline: "Identity & KYC Verification",
+    intro: "Verify individuals instantly with India's most comprehensive identity verification suite. From Aadhaar and PAN to face liveness and address intelligence — all in real-time, fully compliant.",
+    services: [
+      { name: "Aadhaar Verification", desc: "Validate Aadhaar number authenticity and retrieve demographic data securely via UIDAI-compliant APIs." },
+      { name: "PAN Verification", desc: "Verify PAN card details including name, date of birth, and active status in real-time." },
+      { name: "Voter ID Verification", desc: "Authenticate Voter ID card details for identity and address confirmation." },
+      { name: "Passport Verification", desc: "Validate Indian passport number, name, and expiry status instantly." },
+      { name: "Driving License Verification", desc: "Check DL validity, class of vehicle, issue and expiry dates via transport authority data." },
+      { name: "CKYC Search & Download", desc: "Search and retrieve Central KYC records to reduce onboarding friction and eliminate redundant verification." },
+      { name: "Face Match & Liveness", desc: "Prevent deepfake, replay, and impersonation fraud with AI-powered face matching and liveness detection." },
+      { name: "Mobile / Telecom Verification", desc: "Verify mobile number ownership, carrier, and active status for contact validation." },
+      { name: "Email Verification", desc: "Validate email address format, deliverability, and domain authenticity." },
+      { name: "Address Verification", desc: "Verify residential and business addresses using multiple data sources for accurate validation." },
+      { name: "Address Matching & Standardization", desc: "Standardize and match addresses across formats for consistent data quality." },
+    ],
+    ctaText: "Start verifying identities with VeriSekure's KYC APIs today.",
+  },
+  "financial-banking": {
+    slug: "financial-banking",
+    seoTitle: "Financial & Banking Verification APIs | VeriSekure",
+    metaDescription: "Verify bank accounts, income, credit scores, and run AML/sanction screening with VeriSekure's financial verification APIs.",
+    headline: "Financial & Banking Verification",
+    intro: "Make smarter lending and onboarding decisions with real-time financial intelligence — bank account validation, income verification, credit bureau integration, and AML compliance.",
+    services: [
+      { name: "Bank Account Verification (Penny Drop)", desc: "Validate bank account ownership and active status via penny drop or reverse penny drop methods." },
+      { name: "IFSC Validation", desc: "Verify IFSC codes and retrieve bank branch details for accurate payment routing." },
+      { name: "Account Name Match", desc: "Cross-verify account holder name against identity documents for ownership confirmation." },
+      { name: "Income Verification", desc: "Verify income levels through bank statements, ITR data, and alternate data sources." },
+      { name: "Credit Bureau Score", desc: "Retrieve credit scores from major bureaus for lending risk assessment." },
+      { name: "Full Credit Report", desc: "Access comprehensive credit reports including payment history, defaults, and credit utilization." },
+      { name: "AML / Sanction Screening", desc: "Screen individuals and entities against global AML, sanctions, and watchlists in real-time." },
+      { name: "PEP Check", desc: "Identify Politically Exposed Persons for enhanced due diligence in high-risk transactions." },
+      { name: "Digital Footprint Risk", desc: "Assess digital presence and behavioral signals for fraud risk scoring." },
+    ],
+    ctaText: "Power smarter financial decisions with VeriSekure APIs.",
+  },
+  "business-kyb": {
+    slug: "business-kyb",
+    seoTitle: "Business KYB & Company Verification APIs | VeriSekure",
+    metaDescription: "Verify GST, CIN, MSME, directors, UBOs, and business licenses with VeriSekure's KYB verification APIs.",
+    headline: "Business / KYB Verification",
+    intro: "Authenticate businesses, verify corporate entities, and screen directors and UBOs with comprehensive KYB APIs designed for vendor onboarding, merchant verification, and B2B compliance.",
+    services: [
+      { name: "GST Verification", desc: "Validate GSTIN, check filing status, and retrieve business registration details instantly." },
+      { name: "CIN / MCA Company Details", desc: "Verify company registration, incorporation date, directors, and compliance status via MCA database." },
+      { name: "MSME Verification", desc: "Authenticate MSME Udyam registration number and business classification." },
+      { name: "PAN to Company Mapping", desc: "Map PAN numbers to associated company entities for corporate verification." },
+      { name: "Director KYC", desc: "Verify director identity, DIN status, and associated companies for compliance." },
+      { name: "UBO / Ownership Check", desc: "Identify Ultimate Beneficial Owners for AML compliance and corporate transparency." },
+      { name: "Shop Establishment Verification", desc: "Validate shop and establishment registration for local business verification." },
+      { name: "FSSAI License Verification", desc: "Verify food business license authenticity and validity for F&B sector compliance." },
+      { name: "Trade License Verification", desc: "Authenticate municipal trade licenses for business legitimacy checks." },
+    ],
+    ctaText: "Verify businesses and vendors with VeriSekure KYB APIs.",
+  },
+  "employment-education": {
+    slug: "employment-education",
+    seoTitle: "Employment & Education Verification APIs | VeriSekure",
+    metaDescription: "Verify employment history, education credentials, and professional licenses with VeriSekure APIs.",
+    headline: "Employment, Education & Professional Verification",
+    intro: "Validate employment records, academic credentials, and professional licenses for comprehensive background verification and HR compliance.",
+    services: [
+      { name: "UAN Verification", desc: "Verify Universal Account Number for PF and employment history confirmation." },
+      { name: "ESIC Verification", desc: "Validate Employee State Insurance records for employment verification." },
+      { name: "Previous Employment Check", desc: "Verify previous employer details, tenure, and designation for background screening." },
+      { name: "Degree / Certificate Verification", desc: "Authenticate academic degrees and certificates against university records." },
+      { name: "University Validation", desc: "Verify university accreditation and recognition status." },
+      { name: "Doctor Verification", desc: "Validate medical practitioner registration with state/national medical councils." },
+      { name: "Nurse Verification", desc: "Verify nursing registration and license status for healthcare compliance." },
+    ],
+    ctaText: "Verify credentials and employment with VeriSekure APIs.",
+  },
+  "legal-criminal": {
+    slug: "legal-criminal",
+    seoTitle: "Legal, Court & Criminal Background Check APIs | VeriSekure",
+    metaDescription: "Run criminal record searches, eCourt case lookups, and litigation history checks with VeriSekure APIs.",
+    headline: "Legal, Court & Criminal Checks",
+    intro: "Comprehensive legal and criminal screening APIs to identify litigation history, court cases, and criminal records for safer hiring, lending, and onboarding decisions.",
+    services: [
+      { name: "Criminal Record Search", desc: "Search criminal databases for convictions, FIRs, and pending cases across jurisdictions." },
+      { name: "eCourt Case Search", desc: "Look up active and historical court cases across Indian eCourt databases." },
+      { name: "CNR Case Status", desc: "Track case status using CNR (Case Number Record) for real-time litigation monitoring." },
+      { name: "Litigation History", desc: "Retrieve comprehensive litigation history for individuals and entities." },
+    ],
+    ctaText: "Run background checks with VeriSekure legal APIs.",
+  },
+  "vehicle-mobility": {
+    slug: "vehicle-mobility",
+    seoTitle: "Vehicle & Driver Verification APIs | VeriSekure",
+    metaDescription: "Verify driving licenses, vehicle RC, insurance, challans, and permits with VeriSekure mobility APIs.",
+    headline: "Vehicle, Driver & Mobility Verification",
+    intro: "Verify drivers, vehicles, and fleet partners with real-time APIs for driving license validation, RC checks, insurance verification, and compliance history.",
+    services: [
+      { name: "Driving License Verification", desc: "Validate DL number, class, validity, and restrictions from transport authority records." },
+      { name: "DL Status / Expiry Check", desc: "Check real-time DL active status and upcoming expiry dates." },
+      { name: "RC Verification (Lite / Full)", desc: "Verify vehicle registration certificate including owner, class, fuel type, and fitness status." },
+      { name: "Vehicle Insurance Status", desc: "Check active insurance policy status and coverage validity for vehicles." },
+      { name: "Challan / Violation Check", desc: "Retrieve traffic violations, pending challans, and compliance history for vehicles." },
+      { name: "Permit & Fitness Check", desc: "Validate commercial vehicle permits and fitness certificate status." },
+    ],
+    ctaText: "Verify drivers and vehicles with VeriSekure APIs.",
+  },
+  "document-ai": {
+    slug: "document-ai",
+    seoTitle: "Document AI, OCR & Data Extraction APIs | VeriSekure",
+    metaDescription: "Auto-extract and verify documents with AI-powered OCR, authenticity checks, and intelligent parsing using VeriSekure.",
+    headline: "Document AI & Data Extraction",
+    intro: "Automate document processing with AI-powered OCR extraction, authenticity verification, and intelligent parsing for faster onboarding, lending, and claims processing.",
+    services: [
+      { name: "Document OCR Extraction", desc: "Extract text and structured data from scanned documents and images using advanced OCR." },
+      { name: "Document Authenticity Check", desc: "Detect forged, tampered, or manipulated documents using AI-powered analysis." },
+      { name: "ID Document Parsing", desc: "Parse identity documents (Aadhaar, PAN, DL, Passport) to extract structured fields automatically." },
+      { name: "Claim / Invoice Extraction", desc: "Extract line items, totals, and metadata from insurance claims and invoices for processing automation." },
+    ],
+    ctaText: "Automate document workflows with VeriSekure Document AI.",
+  },
+  "risk-fraud": {
+    slug: "risk-fraud",
+    seoTitle: "Fraud Detection & Risk Intelligence APIs | VeriSekure",
+    metaDescription: "Detect fraud, score risk, and build trust with VeriSekure's fraud risk, identity deduplication, and trust score APIs.",
+    headline: "Risk, Fraud & Trust Intelligence",
+    intro: "Proactive fraud detection and risk scoring APIs that combine multiple verification signals into actionable intelligence for automated decision-making.",
+    services: [
+      { name: "Fraud Risk Score", desc: "Multi-signal fraud scoring combining identity, financial, behavioral, and device intelligence." },
+      { name: "Identity Deduplication", desc: "Detect duplicate identities across your user base to prevent fraud rings and multi-accounting." },
+      { name: "Device / Behavioral Signals", desc: "Analyze device fingerprints and behavioral patterns for suspicious activity detection." },
+      { name: "Trust Score API (0–1000)", desc: "Unified trust score combining all verification signals into a single 0–1000 confidence rating." },
+    ],
+    ctaText: "Build fraud-resistant systems with VeriSekure risk APIs.",
+  },
+};
