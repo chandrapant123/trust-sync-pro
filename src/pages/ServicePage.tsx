@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import JsonLd from "@/components/JsonLd";
 import { serviceCategories } from "@/data/verification-services";
+import { individualApis } from "@/data/individual-apis";
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
@@ -15,9 +17,22 @@ const ServicePage = () => {
 
   if (!data) return <Navigate to="/all-apis" replace />;
 
+  const relatedApis = Object.values(individualApis).filter(api => api.parentSlug === slug);
+
+  const faqJsonLd = data.faqs && data.faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: data.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  } : null;
+
   return (
     <Layout>
       <SEOHead title={data.seoTitle} description={data.metaDescription} />
+      {faqJsonLd && <JsonLd data={faqJsonLd} />}
 
       {/* Hero */}
       <section className="gradient-hero py-20 lg:py-28">
@@ -53,8 +68,9 @@ const ServicePage = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="mb-8 text-center font-heading text-2xl font-bold text-foreground md:text-3xl">Available APIs</h2>
           <div className="mx-auto max-w-4xl grid gap-4 md:grid-cols-2">
-            {data.services.map((svc, i) => (
-              <motion.div key={svc.name} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ delay: i * 0.05 }} className="rounded-xl border border-border bg-card p-5 transition-shadow hover:shadow-md">
+            {data.services.map((svc, i) => {
+              const apiSlug = Object.keys(individualApis).find(key => individualApis[key].headline.toLowerCase().includes(svc.name.toLowerCase().split(" ")[0]));
+              const Inner = (
                 <div className="flex items-start gap-3">
                   <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                   <div>
@@ -62,9 +78,28 @@ const ServicePage = () => {
                     <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{svc.desc}</p>
                   </div>
                 </div>
-              </motion.div>
-            ))}
+              );
+              return (
+                <motion.div key={svc.name} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ delay: i * 0.05 }} className="rounded-xl border border-border bg-card p-5 transition-shadow hover:shadow-md">
+                  {Inner}
+                </motion.div>
+              );
+            })}
           </div>
+
+          {/* Related Individual API Pages */}
+          {relatedApis.length > 0 && (
+            <div className="mx-auto mt-8 max-w-4xl">
+              <h3 className="mb-4 text-center font-heading text-lg font-semibold text-foreground">Explore Individual API Documentation</h3>
+              <div className="flex flex-wrap justify-center gap-2">
+                {relatedApis.map((api) => (
+                  <Link key={api.slug} to={`/api/${api.slug}`} className="rounded-full border border-border bg-card px-4 py-2 text-xs font-medium text-accent transition-colors hover:bg-accent/10">
+                    {api.headline} →
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

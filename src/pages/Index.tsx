@@ -4,7 +4,23 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Zap, Building2, BarChart3, FileSearch, CheckCircle, Lock, Users, Globe, Landmark, CreditCard, HeartPulse, ShoppingCart, Wifi, Truck, Home, GraduationCap, Gamepad2, Building } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import JsonLd from "@/components/JsonLd";
 import heroBg from "@/assets/hero-bg.jpg";
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "VeriSekure",
+  url: "https://verisekure.com",
+  logo: "https://verisekure.com/logo.png",
+  description: "India's most trusted verification and KYC API platform providing 100+ real-time verification APIs for identity, financial, business, legal, vehicle, document, and risk intelligence.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    availableLanguage: ["English", "Hindi"],
+  },
+  sameAs: [],
+};
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
@@ -46,6 +62,7 @@ const steps = [
 const Index = () => (
   <Layout>
     <SEOHead title="India's Most Trusted Verification & KYC API Platform | VeriSekure" description="Instantly verify identity, financial data, business credentials, and background risk with secure, real-time APIs built for fintech, banks, NBFCs, insurance, telecom, e-commerce, and enterprises." />
+    <JsonLd data={organizationJsonLd} />
 
     {/* Hero */}
     <section className="relative overflow-hidden">

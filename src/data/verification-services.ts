@@ -391,4 +391,106 @@ VeriSekure's fraud intelligence is built on machine learning models trained on m
       { q: "Can the fraud models be customized for my business?", a: "Yes. While our default models work well across industries, we offer custom model tuning for enterprise clients to optimize fraud detection for specific business contexts and risk profiles." },
     ],
   },
+  "property-land": {
+    slug: "property-land",
+    seoTitle: "Property & Land Verification APIs in India | VeriSekure",
+    metaDescription: "Verify property ownership, land records, encumbrance certificates, RERA registration, and title documents with VeriSekure's property verification APIs.",
+    headline: "Property & Land Verification",
+    intro: "Comprehensive property and land verification APIs for real estate transactions, mortgage lending, and due diligence — verify ownership, title, encumbrance, RERA registration, and land records in real-time.",
+    services: [
+      { name: "Property Ownership Verification", desc: "Verify property ownership details against government land registry and revenue records." },
+      { name: "Land Record Search", desc: "Search and retrieve land records including khasra, khatauni, and mutation entries across states." },
+      { name: "Encumbrance Certificate Check", desc: "Check for existing mortgages, liens, and legal encumbrances on property titles." },
+      { name: "RERA Registration Verification", desc: "Validate RERA registration status for real estate projects and developers." },
+      { name: "Title Document Verification", desc: "Authenticate sale deeds, title certificates, and property documents for legitimacy." },
+      { name: "Property Tax Payment Status", desc: "Verify property tax payment history and outstanding dues for municipal compliance." },
+      { name: "Circle Rate / Guideline Value", desc: "Retrieve government-published circle rates and guideline values for property valuation." },
+      { name: "Builder / Developer Verification", desc: "Verify developer credentials, project history, and regulatory compliance status." },
+    ],
+    ctaText: "Secure property transactions with VeriSekure verification APIs.",
+    longContent: `Property and land verification is one of the most complex and critical aspects of real estate transactions in India. With land records historically maintained in fragmented, paper-based systems across thousands of tehsils and sub-registrar offices, verifying property ownership, title authenticity, and encumbrance status has been a major challenge. Fraud in real estate — including forged title documents, duplicate property sales, undisclosed encumbrances, and fake RERA registrations — costs Indian buyers and financial institutions billions of rupees annually.
+
+VeriSekure's Property & Land Verification APIs bring digital verification to India's real estate ecosystem. Our APIs connect to digitized land record databases, sub-registrar offices, RERA portals, and municipal corporation systems across major Indian states to provide comprehensive property verification in real-time.
+
+Property Ownership Verification confirms the current owner of a property by cross-referencing land registry records, revenue department data, and sub-registrar records. This is the foundational check for any property transaction — whether it's a purchase, mortgage, or lease. Buyers and lenders can verify that the person claiming to sell or mortgage a property is indeed the legal owner, preventing title fraud and unauthorized transactions.
+
+Land Record Search provides access to digitized land records including khasra (plot-level records), khatauni (ownership records), and mutation entries (ownership transfer records). Our API supports multi-state land record search, covering major states like Maharashtra, Karnataka, Rajasthan, Uttar Pradesh, Madhya Pradesh, Tamil Nadu, and more. This enables buyers, lenders, and developers to trace ownership history and identify potential disputes.
+
+Encumbrance Certificate (EC) verification is essential for mortgage lending and property purchases. The EC confirms whether a property has any existing mortgages, liens, court attachments, or other legal encumbrances. Banks and housing finance companies mandate EC verification before approving home loans. Our API retrieves EC data from sub-registrar offices, providing a clear picture of the property's encumbrance status.
+
+RERA Registration Verification validates that a real estate project is registered under the Real Estate (Regulation and Development) Act. RERA registration is mandatory for all residential and commercial real estate projects above specified sizes. Unregistered projects expose buyers to construction delays, quality issues, and financial losses. Our API checks RERA registration status, project timeline, developer details, and compliance history across state RERA portals.
+
+Title Document Verification uses AI-powered document analysis to authenticate sale deeds, gift deeds, partition deeds, and other property documents. Our system checks for signs of forgery, tampering, and inconsistencies in property documents, providing an additional layer of due diligence beyond ownership and encumbrance checks.
+
+Property Tax Payment Status verification confirms whether property taxes are current, helping buyers identify properties with outstanding dues that may create legal complications post-purchase. Circle Rate and Guideline Value retrieval provides government-published property valuation benchmarks for stamp duty calculation, loan valuation, and fair market assessment.
+
+Builder and Developer Verification validates the credentials, project track record, regulatory compliance, and financial health of real estate developers. This is critical for under-construction property purchases and for financial institutions providing project financing.`,
+    useCases: [
+      "Home loan and mortgage underwriting",
+      "Property purchase due diligence",
+      "Real estate developer assessment",
+      "Rental property verification",
+      "Commercial real estate transactions",
+      "Land acquisition for development",
+      "RERA compliance verification",
+      "Property insurance underwriting",
+    ],
+    faqs: [
+      { q: "Which states does property verification cover?", a: "We currently cover major states including Maharashtra, Karnataka, Rajasthan, Uttar Pradesh, Tamil Nadu, Madhya Pradesh, Telangana, and more — with continuous expansion to additional states." },
+      { q: "Can VeriSekure check for property encumbrances?", a: "Yes. Our Encumbrance Certificate Check API retrieves existing mortgages, liens, court attachments, and other legal encumbrances from sub-registrar records." },
+      { q: "How does RERA verification work?", a: "Our API checks the project's RERA registration status, registration number, developer details, project timeline, and compliance history across state RERA portals." },
+      { q: "Can it verify land records across states?", a: "Yes. Our Land Record Search API supports multi-state access to digitized khasra, khatauni, and mutation records with a unified API interface." },
+      { q: "Is this useful for home loan processing?", a: "Absolutely. Banks and housing finance companies use our property verification APIs for title search, encumbrance check, valuation, and RERA compliance — essential steps in home loan underwriting." },
+    ],
+  },
+  "industry-bundles": {
+    slug: "industry-bundles",
+    seoTitle: "Industry Bundled Verification APIs — Pre-Built API Bundles | VeriSekure",
+    metaDescription: "Pre-built verification API bundles for Fintech, Banking, NBFC, Insurance, E-Commerce, and Telecom. Get all required APIs in one integration with VeriSekure.",
+    headline: "Industry Bundled API Solutions",
+    intro: "Pre-built verification bundles combining the exact APIs each industry needs — from Fintech KYC to Banking AML to Insurance fraud prevention. One integration, complete compliance.",
+    services: [
+      { name: "Fintech Bundle", desc: "KYC + Bank Verification + AML + Credit Score + Income Verification — everything for digital lending and payment onboarding." },
+      { name: "Lending / NBFC Bundle", desc: "KYC + Telecom + Bank + Credit Report + Fraud Score — comprehensive risk assessment for lending decisions." },
+      { name: "Banking Bundle", desc: "CKYC + AML Screening + KYB + Income + Credit — regulatory-compliant onboarding and monitoring." },
+      { name: "Insurance Bundle", desc: "KYC + Income Verification + Document AI + AML — fraud-free policy issuance and claims processing." },
+      { name: "E-Commerce Bundle", desc: "KYC + GST Verification + Address + Fraud Score + RC/DL — trusted seller and delivery partner onboarding." },
+      { name: "Telecom Bundle", desc: "KYC + Face Liveness + Address Verification + AML — secure SIM activation and subscriber onboarding." },
+    ],
+    ctaText: "Get your industry bundle from VeriSekure today.",
+    longContent: `Every industry has unique verification requirements driven by regulatory mandates, business risks, and customer onboarding workflows. Building a verification stack from scratch — selecting individual APIs, managing multiple integrations, and ensuring compliance — is complex, time-consuming, and expensive. VeriSekure's Industry Bundled API Solutions solve this by providing pre-configured API bundles tailored to each industry's specific needs.
+
+Our bundles combine the exact verification APIs that each industry requires, packaged into a single integration with unified documentation, consolidated billing, and optimized API orchestration. Instead of integrating 8-10 individual APIs, businesses can activate an industry bundle and get comprehensive verification coverage with a single integration effort.
+
+The Fintech Bundle is designed for digital lending platforms, payment companies, and neobanks. It includes Identity KYC (Aadhaar, PAN, Face Match), Bank Account Verification, AML/Sanction Screening, Credit Bureau Integration, and Income Verification. This bundle covers the complete lending lifecycle from customer onboarding to creditworthiness assessment, with all APIs optimized for speed and accuracy in digital-first workflows.
+
+The Lending / NBFC Bundle extends the Fintech bundle with additional risk assessment capabilities. It includes KYC verification, Telecom/Mobile verification, Bank Account validation, Full Credit Report access, and Fraud Risk Scoring. NBFCs and microfinance institutions face unique risk challenges — smaller ticket sizes, thinner credit files, and higher fraud exposure. This bundle provides the multi-layered risk intelligence needed for responsible lending in underserved segments.
+
+The Banking Bundle is built for commercial banks, cooperative banks, and payment banks that must meet stringent RBI compliance requirements. It includes CKYC (Central KYC) integration, comprehensive AML/Sanction Screening, KYB (Know Your Business) verification, Income Verification, and Credit Bureau integration. This bundle enables banks to meet all regulatory mandates while streamlining the account opening and transaction monitoring process.
+
+The Insurance Bundle addresses the unique verification needs of insurance companies across life, health, motor, and general insurance. It includes KYC verification, Income Verification (for sum assured validation), Document AI (for policy document and claims processing), and AML Screening. This bundle supports the full insurance lifecycle from proposal verification to claims adjudication.
+
+The E-Commerce Bundle is designed for online marketplaces, quick commerce, and delivery platforms. It includes KYC for buyer/seller verification, GST Verification for merchant compliance, Address Verification for delivery accuracy, Fraud Risk Scoring for transaction safety, and RC/DL verification for delivery partner onboarding. This comprehensive bundle helps marketplaces build trusted ecosystems.
+
+The Telecom Bundle supports mobile operators and MVNOs in meeting TRAI and DoT subscriber verification mandates. It includes KYC verification, Face Liveness Detection (for in-person and remote SIM activation), Address Verification, and AML Screening. This bundle is optimized for the high-volume, low-latency requirements of telecom customer onboarding.
+
+Each bundle includes dedicated support, optimized API orchestration for faster response times, consolidated reporting and analytics, and preferential pricing compared to individual API subscriptions.`,
+    useCases: [
+      "Complete fintech onboarding in one integration",
+      "NBFC lending risk assessment stack",
+      "Bank account opening compliance",
+      "Insurance policy lifecycle verification",
+      "Marketplace seller and buyer trust",
+      "Telecom SIM activation compliance",
+      "Reducing multi-vendor integration complexity",
+      "Unified compliance reporting and audit",
+    ],
+    faqs: [
+      { q: "What is an industry bundle?", a: "An industry bundle is a pre-configured set of verification APIs tailored to a specific industry's requirements, packaged into a single integration with unified documentation and billing." },
+      { q: "Can I customize a bundle?", a: "Yes. While our standard bundles cover most industry requirements, you can add or remove individual APIs to create a custom bundle that matches your specific verification workflow." },
+      { q: "How much faster is bundle integration vs individual APIs?", a: "Bundles typically reduce integration time by 60-70% since you're working with a single, pre-configured integration instead of orchestrating multiple individual API calls." },
+      { q: "Is pricing better with bundles?", a: "Yes. Industry bundles offer preferential pricing compared to subscribing to each API individually, with volume-based discounts and consolidated billing." },
+      { q: "Can I switch between bundles?", a: "Yes. You can upgrade, downgrade, or switch between bundles as your business needs evolve. Our team will help you transition smoothly." },
+    ],
+  },
 };

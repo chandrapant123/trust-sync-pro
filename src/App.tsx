@@ -16,6 +16,7 @@ import Terms from "./pages/Terms";
 import AllApis from "./pages/AllApis";
 import IndustryPage from "./pages/IndustryPage";
 import ServicePage from "./pages/ServicePage";
+import ApiDetailPage from "./pages/ApiDetailPage";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import AdminLogin from "./pages/admin/AdminLogin";
@@ -41,6 +42,7 @@ const AnimatedRoutes = () => {
         <Route path="/all-apis" element={<PageTransition><AllApis /></PageTransition>} />
         <Route path="/industries/:slug" element={<PageTransition><IndustryPage /></PageTransition>} />
         <Route path="/services/:slug" element={<PageTransition><ServicePage /></PageTransition>} />
+        <Route path="/api/:slug" element={<PageTransition><ApiDetailPage /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
         <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
         <Route path="/admin" element={<AdminLogin />} />
