@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Shield, Zap, Building2, Landmark, CreditCard, HeartPulse, ShoppingCart, Wifi, Truck, Home, GraduationCap, Gamepad2, Building, Code2, FileCheck } from "lucide-react";
+import { Menu, X, ChevronDown, Shield, Zap, Building2, Landmark, CreditCard, HeartPulse, ShoppingCart, Wifi, Truck, Home, GraduationCap, Gamepad2, Building, Code2, FileCheck, BookOpen } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const industries = [
   { name: "Fintech", path: "/industries/fintech", icon: Zap },
@@ -39,12 +40,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-            <Shield className="h-5 w-5 text-primary-foreground" />
-          </div>
-          <span className="font-heading text-xl font-bold text-foreground">
-            Veri<span className="text-accent">Sekure</span>
-          </span>
+          <img src={logo} alt="VeriSekure Logo" className="h-9 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
@@ -97,6 +93,9 @@ const Header = () => {
           <Link to="/all-apis" className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-accent ${location.pathname === "/all-apis" ? "text-accent" : "text-muted-foreground"}`}>
             All APIs
           </Link>
+          <Link to="/blog" className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-accent ${location.pathname.startsWith("/blog") ? "text-accent" : "text-muted-foreground"}`}>
+            Blog
+          </Link>
           <Link to="/about" className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-accent ${location.pathname === "/about" ? "text-accent" : "text-muted-foreground"}`}>
             About
           </Link>
@@ -126,6 +125,7 @@ const Header = () => {
           <div className="container mx-auto space-y-1 px-4 py-4">
             <Link to="/" className="block rounded-md px-3 py-2 text-sm font-medium text-foreground" onClick={() => setMobileOpen(false)}>Home</Link>
             <Link to="/all-apis" className="block rounded-md px-3 py-2 text-sm font-medium text-foreground" onClick={() => setMobileOpen(false)}>All APIs</Link>
+            <Link to="/blog" className="block rounded-md px-3 py-2 text-sm font-medium text-foreground" onClick={() => setMobileOpen(false)}>Blog</Link>
             <p className="px-3 pt-3 text-xs font-semibold uppercase text-muted-foreground">Services</p>
             {serviceCategories.map((svc) => (
               <Link key={svc.path} to={svc.path} className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-foreground hover:bg-secondary" onClick={() => setMobileOpen(false)}>
@@ -161,11 +161,9 @@ const Footer = () => (
       <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent">
-              <Shield className="h-4 w-4 text-accent-foreground" />
-            </div>
-            <span className="font-heading text-lg font-bold">VeriSekure</span>
+            <img src={logo} alt="VeriSekure Logo" className="h-8 w-auto brightness-0 invert" />
           </Link>
+          <p className="mt-4 text-sm text-primary-foreground/70">India's unified platform for identity, financial, business, and risk verification APIs.</p>
           <p className="mt-4 text-sm text-primary-foreground/70">India's unified platform for identity, financial, business, and risk verification APIs.</p>
         </div>
 
