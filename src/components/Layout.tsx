@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Shield, Zap, Building2, Landmark, CreditCard, HeartPulse, ShoppingCart, Wifi, Truck, Home, GraduationCap, Gamepad2, Building } from "lucide-react";
+import { Menu, X, ChevronDown, Shield, Zap, Building2, Landmark, CreditCard, HeartPulse, ShoppingCart, Wifi, Truck, Home, GraduationCap, Gamepad2, Building, Code2, FileCheck } from "lucide-react";
 
 const industries = [
   { name: "Fintech", path: "/industries/fintech", icon: Zap },
@@ -18,9 +18,21 @@ const industries = [
   { name: "Government", path: "/industries/government", icon: Building },
 ];
 
+const serviceCategories = [
+  { name: "Identity & KYC", path: "/services/identity-kyc", icon: Shield },
+  { name: "Financial & Banking", path: "/services/financial-banking", icon: Landmark },
+  { name: "Business / KYB", path: "/services/business-kyb", icon: Building2 },
+  { name: "Employment & Education", path: "/services/employment-education", icon: GraduationCap },
+  { name: "Legal & Criminal", path: "/services/legal-criminal", icon: FileCheck },
+  { name: "Vehicle & Mobility", path: "/services/vehicle-mobility", icon: Truck },
+  { name: "Document AI", path: "/services/document-ai", icon: Code2 },
+  { name: "Risk & Fraud", path: "/services/risk-fraud", icon: Zap },
+];
+
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
 
   return (
@@ -31,7 +43,7 @@ const Header = () => {
             <Shield className="h-5 w-5 text-primary-foreground" />
           </div>
           <span className="font-heading text-xl font-bold text-foreground">
-            Bharate<span className="text-accent">Verify</span>
+            Veri<span className="text-accent">Sekure</span>
           </span>
         </Link>
 
@@ -40,6 +52,29 @@ const Header = () => {
           <Link to="/" className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-accent ${location.pathname === "/" ? "text-accent" : "text-muted-foreground"}`}>
             Home
           </Link>
+
+          <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
+            <button className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-accent">
+              Services <ChevronDown className="h-3.5 w-3.5" />
+            </button>
+            {servicesOpen && (
+              <div className="absolute left-0 top-full w-[440px] rounded-xl border border-border bg-card p-4 shadow-xl">
+                <div className="grid grid-cols-2 gap-1">
+                  {serviceCategories.map((svc) => (
+                    <Link key={svc.path} to={svc.path} className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-foreground transition-colors hover:bg-secondary" onClick={() => setServicesOpen(false)}>
+                      <svc.icon className="h-4 w-4 text-accent" />
+                      {svc.name}
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-2 border-t border-border pt-2">
+                  <Link to="/all-apis" className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-accent transition-colors hover:bg-secondary" onClick={() => setServicesOpen(false)}>
+                    <Code2 className="h-4 w-4" /> View All APIs →
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
 
           <div className="relative" onMouseEnter={() => setIndustriesOpen(true)} onMouseLeave={() => setIndustriesOpen(false)}>
             <button className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-accent">
@@ -59,6 +94,9 @@ const Header = () => {
             )}
           </div>
 
+          <Link to="/all-apis" className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-accent ${location.pathname === "/all-apis" ? "text-accent" : "text-muted-foreground"}`}>
+            All APIs
+          </Link>
           <Link to="/about" className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-accent ${location.pathname === "/about" ? "text-accent" : "text-muted-foreground"}`}>
             About
           </Link>
@@ -84,9 +122,16 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="border-t border-border bg-background lg:hidden">
+        <div className="border-t border-border bg-background lg:hidden max-h-[80vh] overflow-y-auto">
           <div className="container mx-auto space-y-1 px-4 py-4">
             <Link to="/" className="block rounded-md px-3 py-2 text-sm font-medium text-foreground" onClick={() => setMobileOpen(false)}>Home</Link>
+            <Link to="/all-apis" className="block rounded-md px-3 py-2 text-sm font-medium text-foreground" onClick={() => setMobileOpen(false)}>All APIs</Link>
+            <p className="px-3 pt-3 text-xs font-semibold uppercase text-muted-foreground">Services</p>
+            {serviceCategories.map((svc) => (
+              <Link key={svc.path} to={svc.path} className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-foreground hover:bg-secondary" onClick={() => setMobileOpen(false)}>
+                <svc.icon className="h-4 w-4 text-accent" /> {svc.name}
+              </Link>
+            ))}
             <p className="px-3 pt-3 text-xs font-semibold uppercase text-muted-foreground">Industries</p>
             {industries.map((ind) => (
               <Link key={ind.path} to={ind.path} className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-foreground hover:bg-secondary" onClick={() => setMobileOpen(false)}>
@@ -119,7 +164,7 @@ const Footer = () => (
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent">
               <Shield className="h-4 w-4 text-accent-foreground" />
             </div>
-            <span className="font-heading text-lg font-bold">BharateVerify</span>
+            <span className="font-heading text-lg font-bold">VeriSekure</span>
           </Link>
           <p className="mt-4 text-sm text-primary-foreground/70">India's unified platform for identity, financial, business, and risk verification APIs.</p>
         </div>
@@ -127,11 +172,12 @@ const Footer = () => (
         <div>
           <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-accent">Products</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/70">
-            <li><span className="cursor-pointer hover:text-accent">Identity & KYC</span></li>
-            <li><span className="cursor-pointer hover:text-accent">Financial Verification</span></li>
-            <li><span className="cursor-pointer hover:text-accent">Business KYB</span></li>
-            <li><span className="cursor-pointer hover:text-accent">Background Checks</span></li>
-            <li><span className="cursor-pointer hover:text-accent">Document AI</span></li>
+            <li><Link to="/services/identity-kyc" className="hover:text-accent">Identity & KYC</Link></li>
+            <li><Link to="/services/financial-banking" className="hover:text-accent">Financial Verification</Link></li>
+            <li><Link to="/services/business-kyb" className="hover:text-accent">Business KYB</Link></li>
+            <li><Link to="/services/legal-criminal" className="hover:text-accent">Background Checks</Link></li>
+            <li><Link to="/services/document-ai" className="hover:text-accent">Document AI</Link></li>
+            <li><Link to="/all-apis" className="hover:text-accent">All APIs →</Link></li>
           </ul>
         </div>
 
@@ -158,7 +204,7 @@ const Footer = () => (
       </div>
 
       <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/10 pt-8 md:flex-row">
-        <p className="text-sm text-primary-foreground/50">© {new Date().getFullYear()} BharateVerify. All rights reserved.</p>
+        <p className="text-sm text-primary-foreground/50">© {new Date().getFullYear()} VeriSekure. All rights reserved.</p>
         <div className="flex gap-6 text-sm text-primary-foreground/50">
           <Link to="/privacy" className="hover:text-accent">Privacy</Link>
           <Link to="/terms" className="hover:text-accent">Terms</Link>
