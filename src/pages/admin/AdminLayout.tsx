@@ -1,6 +1,6 @@
 import { Navigate, Outlet, Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { Shield, LayoutDashboard, FileText, Settings, LogOut, BookOpen, ArrowLeftRight, PackageSearch, Wallet, KeyRound } from "lucide-react";
+import { Shield, LayoutDashboard, FileText, Settings, LogOut, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -8,10 +8,6 @@ const navItems = [
   { label: "Pages", path: "/admin/pages", icon: FileText },
   { label: "Blog Posts", path: "/admin/blog", icon: BookOpen },
   { label: "SEO Settings", path: "/admin/seo", icon: Settings },
-  { label: "Transactions", path: "/admin/transactions", icon: ArrowLeftRight },
-  { label: "API Products", path: "/admin/api-products", icon: PackageSearch },
-  { label: "Fund Request", path: "/admin/fund-request", icon: Wallet },
-  { label: "API Credentials", path: "/admin/api-credentials", icon: KeyRound },
 ];
 
 const AdminLayout = () => {
