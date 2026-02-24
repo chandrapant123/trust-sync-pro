@@ -26,6 +26,7 @@ import AdminPages from "./pages/admin/AdminPages";
 import AdminSEO from "./pages/admin/AdminSEO";
 import AdminBlog from "./pages/admin/AdminBlog";
 import AdminTransactions from "./pages/admin/AdminTransactions";
+import AdminApiProducts from "./pages/admin/AdminApiProducts";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -53,6 +54,7 @@ const AnimatedRoutes = () => {
           <Route path="blog" element={<AdminBlog />} />
           <Route path="seo" element={<AdminSEO />} />
           <Route path="transactions" element={<AdminTransactions />} />
+          <Route path="api-products" element={<AdminApiProducts />} />
         </Route>
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
