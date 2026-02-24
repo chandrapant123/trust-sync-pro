@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Shield, Zap, Building2, Landmark, CreditCard, HeartPulse, ShoppingCart, Wifi, Truck, Home, GraduationCap, Gamepad2, Building, Code2, FileCheck, BookOpen } from "lucide-react";
+import { Menu, X, ChevronDown, Shield, Zap, Building2, Landmark, CreditCard, HeartPulse, ShoppingCart, Wifi, Truck, Home, GraduationCap, Gamepad2, Building, Code2, FileCheck, BookOpen, BarChart3 } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const industries = [
@@ -32,10 +32,38 @@ const serviceCategories = [
   { name: "Industry Bundles", path: "/services/industry-bundles", icon: BookOpen },
 ];
 
+const popularApis = [
+  { name: "Aadhaar Verification", path: "/api/aadhaar-verification", icon: Shield },
+  { name: "PAN Verification", path: "/api/pan-verification", icon: Shield },
+  { name: "GST Verification", path: "/api/gst-verification", icon: Building2 },
+  { name: "Bank Account Verification", path: "/api/bank-account-verification", icon: Landmark },
+  { name: "Credit Score API", path: "/api/credit-score-api", icon: BarChart3 },
+  { name: "Face Match & Liveness", path: "/api/face-match-liveness", icon: Shield },
+  { name: "AML Screening", path: "/api/aml-screening", icon: FileCheck },
+  { name: "Driving License", path: "/api/driving-license-verification", icon: Truck },
+  { name: "RC Verification", path: "/api/rc-verification", icon: Truck },
+  { name: "Criminal Record Check", path: "/api/criminal-record-check", icon: FileCheck },
+  { name: "Email Verification", path: "/api/email-verification", icon: Zap },
+  { name: "CKYC Search", path: "/api/ckyc-verification", icon: Shield },
+  { name: "UAN Verification", path: "/api/uan-verification", icon: GraduationCap },
+  { name: "ESIC Verification", path: "/api/esic-verification", icon: GraduationCap },
+  { name: "Challan Check", path: "/api/challan-verification", icon: Truck },
+  { name: "Mobile Verification", path: "/api/mobile-verification", icon: Wifi },
+  { name: "FSSAI License", path: "/api/fssai-verification", icon: Building2 },
+  { name: "Fraud Risk Score", path: "/api/fraud-risk-score", icon: Zap },
+  { name: "eCourt Case Search", path: "/api/ecourt-case-search", icon: FileCheck },
+  { name: "Address Verification", path: "/api/address-verification", icon: Home },
+  { name: "IFSC Verification", path: "/api/ifsc-verification", icon: Landmark },
+  { name: "Property Ownership", path: "/api/property-ownership-verification", icon: Home },
+  { name: "Income Verification", path: "/api/income-verification", icon: Landmark },
+  { name: "Document OCR", path: "/api/document-ocr", icon: Code2 },
+];
+
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [apisOpen, setApisOpen] = useState(false);
   const location = useLocation();
 
   return (
@@ -92,9 +120,28 @@ const Header = () => {
             )}
           </div>
 
-          <Link to="/all-apis" className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-accent ${location.pathname === "/all-apis" ? "text-accent" : "text-muted-foreground"}`}>
-            All APIs
-          </Link>
+          <div className="relative" onMouseEnter={() => setApisOpen(true)} onMouseLeave={() => setApisOpen(false)}>
+            <button className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-accent ${location.pathname.startsWith("/api/") || location.pathname === "/all-apis" ? "text-accent" : "text-muted-foreground"}`}>
+              All APIs <ChevronDown className="h-3.5 w-3.5" />
+            </button>
+            {apisOpen && (
+              <div className="absolute left-1/2 -translate-x-1/2 top-full w-[720px] rounded-xl border border-border bg-card p-5 shadow-xl">
+                <div className="grid grid-cols-3 gap-1">
+                  {popularApis.map((api) => (
+                    <Link key={api.path} to={api.path} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-foreground transition-colors hover:bg-secondary" onClick={() => setApisOpen(false)}>
+                      <api.icon className="h-3.5 w-3.5 text-accent shrink-0" />
+                      <span className="truncate">{api.name}</span>
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-3 border-t border-border pt-3">
+                  <Link to="/all-apis" className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-accent transition-colors hover:bg-secondary" onClick={() => setApisOpen(false)}>
+                    <Code2 className="h-4 w-4" /> View Complete API Directory →
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
           <Link to="/blog" className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-accent ${location.pathname.startsWith("/blog") ? "text-accent" : "text-muted-foreground"}`}>
             Blog
           </Link>
@@ -127,6 +174,13 @@ const Header = () => {
           <div className="container mx-auto space-y-1 px-4 py-4">
             <Link to="/" className="block rounded-md px-3 py-2 text-sm font-medium text-foreground" onClick={() => setMobileOpen(false)}>Home</Link>
             <Link to="/all-apis" className="block rounded-md px-3 py-2 text-sm font-medium text-foreground" onClick={() => setMobileOpen(false)}>All APIs</Link>
+            <p className="px-3 pt-3 text-xs font-semibold uppercase text-muted-foreground">Popular APIs</p>
+            {popularApis.slice(0, 12).map((api) => (
+              <Link key={api.path} to={api.path} className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-foreground hover:bg-secondary" onClick={() => setMobileOpen(false)}>
+                <api.icon className="h-4 w-4 text-accent" /> {api.name}
+              </Link>
+            ))}
+            <Link to="/all-apis" className="block rounded-md px-3 py-2 text-sm font-medium text-accent" onClick={() => setMobileOpen(false)}>View All APIs →</Link>
             <Link to="/blog" className="block rounded-md px-3 py-2 text-sm font-medium text-foreground" onClick={() => setMobileOpen(false)}>Blog</Link>
             <p className="px-3 pt-3 text-xs font-semibold uppercase text-muted-foreground">Services</p>
             {serviceCategories.map((svc) => (

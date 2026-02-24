@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, Landmark, Building2, GraduationCap, FileCheck, Truck, Code2, Zap, BarChart3, ArrowRight } from "lucide-react";
+import { Shield, Landmark, Building2, GraduationCap, FileCheck, Truck, Code2, Zap, BarChart3, ArrowRight, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import { apiSlugMap } from "@/data/api-slug-map";
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
@@ -83,7 +84,7 @@ const apiCategories = [
   },
   {
     title: "Property & Land Verification",
-    icon: Shield,
+    icon: Home,
     path: "/services/property-land",
     groups: [
       { label: "Property Checks", items: ["Property Ownership Verification", "Land Record Search", "Encumbrance Certificate Check", "Title Document Verification"] },
@@ -124,9 +125,7 @@ const AllApis = () => (
                 </div>
                 <div>
                   <h2 className="font-heading text-xl font-bold text-foreground">{cat.title}</h2>
-                  {cat.path !== "#bundles" && (
-                    <Link to={cat.path} className="text-xs text-accent hover:underline">View Details →</Link>
-                  )}
+                  <Link to={cat.path} className="text-xs text-accent hover:underline">View Details →</Link>
                 </div>
               </div>
 
@@ -135,12 +134,21 @@ const AllApis = () => (
                   <div key={group.label} className="rounded-xl border border-border bg-card p-5">
                     <h3 className="mb-3 font-heading text-sm font-semibold uppercase tracking-wider text-accent">{group.label}</h3>
                     <ul className="space-y-2">
-                      {group.items.map((item) => (
-                        <li key={item} className="flex items-center gap-2 text-sm text-foreground">
-                          <div className="h-1.5 w-1.5 rounded-full bg-accent" />
-                          {item}
-                        </li>
-                      ))}
+                      {group.items.map((item) => {
+                        const slug = apiSlugMap[item];
+                        return (
+                          <li key={item} className="flex items-center gap-2 text-sm text-foreground">
+                            <div className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                            {slug ? (
+                              <Link to={`/api/${slug}`} className="hover:text-accent transition-colors hover:underline">
+                                {item}
+                              </Link>
+                            ) : (
+                              item
+                            )}
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 ))}
