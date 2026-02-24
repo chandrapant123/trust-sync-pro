@@ -787,4 +787,563 @@ The API supports individual and bulk verification, making it suitable for both s
       { q: "Can it detect fraudulent registrations?", a: "The API verifies registration authenticity against the official database. Invalid, cancelled, or non-existent Udyam numbers are flagged accordingly." },
     ],
   },
+  "email-verification": {
+    slug: "email-verification",
+    seoTitle: "Email Verification API — Real-Time Email Validation | VeriSekure",
+    metaDescription: "Verify email addresses in real-time — check syntax, domain, MX records, disposable detection, and deliverability. Reduce bounce rates and prevent fraud.",
+    headline: "Email Verification API",
+    intro: "Validate email addresses in real-time with syntax checks, MX record verification, disposable email detection, and deliverability scoring. Reduce bounce rates, prevent signup fraud, and maintain clean contact databases.",
+    parentCategory: "Identity & KYC Verification",
+    parentSlug: "identity-kyc",
+    longContent: `Email verification is a foundational data quality step that every business should implement at the point of customer registration, lead capture, and account creation. Invalid, fake, or disposable email addresses pollute customer databases, inflate marketing costs, damage sender reputation, and create security vulnerabilities. VeriSekure's Email Verification API provides comprehensive, real-time email validation through multiple verification layers.
+
+Our API performs multi-step verification starting with syntax validation — checking the email format against RFC 5322 standards to catch typos, missing characters, and malformed addresses. Domain verification confirms that the email domain exists and has properly configured DNS and MX (Mail Exchange) records capable of receiving email.
+
+The SMTP handshake check goes deeper by connecting to the recipient's mail server to verify whether the specific mailbox exists and is accepting messages — all without sending an actual email. This catches valid domains with invalid mailbox addresses, reducing your bounce rate significantly.
+
+Disposable email detection is critical for preventing fraud and fake signups. Our API maintains a continuously updated database of thousands of disposable and temporary email providers (like Mailinator, Guerrilla Mail, TempMail, and hundreds of others). When a user attempts to register with a disposable email, the API flags it immediately, allowing your application to request a permanent email address.
+
+Role-based email detection identifies generic addresses like info@, support@, admin@, and sales@ that are typically shared mailboxes rather than individual accounts. These addresses often have lower engagement rates and may not be suitable for personalized communications or account verification.
+
+Our API also provides a deliverability score — a composite metric that combines all verification signals into a 0-100 score indicating the likelihood that an email sent to this address will be successfully delivered. This score helps businesses make nuanced decisions rather than simple accept/reject choices.
+
+For businesses managing large contact databases, our bulk verification API processes millions of email addresses efficiently, helping you clean existing lists and maintain ongoing data hygiene. Webhook notifications alert your system when batch processing is complete, and detailed reports identify which addresses are valid, invalid, risky, or unknown.
+
+The API integrates seamlessly into registration forms, CRM systems, marketing platforms, and customer service tools through RESTful endpoints with comprehensive documentation and SDKs for popular programming languages.`,
+    features: [
+      "Real-time syntax and RFC 5322 validation",
+      "DNS and MX record verification",
+      "SMTP mailbox existence check",
+      "Disposable email provider detection",
+      "Role-based email identification",
+      "Deliverability score (0-100)",
+      "Bulk list cleaning and batch processing",
+      "Continuously updated provider database",
+    ],
+    useCases: [
+      "User registration fraud prevention",
+      "Marketing email list hygiene",
+      "Lead capture form validation",
+      "CRM data quality management",
+      "E-commerce checkout verification",
+      "Newsletter subscriber validation",
+      "Account recovery email confirmation",
+      "B2B contact database cleaning",
+    ],
+    faqs: [
+      { q: "How does email verification reduce bounce rates?", a: "By validating syntax, domain, MX records, and mailbox existence before sending, our API catches invalid addresses at the point of entry, preventing hard bounces that damage your sender reputation." },
+      { q: "Can it detect disposable emails?", a: "Yes. Our API maintains a continuously updated database of thousands of disposable and temporary email providers, flagging them in real-time during registration." },
+      { q: "Does it actually send an email to verify?", a: "No. Our SMTP verification checks whether the mailbox exists by connecting to the mail server without sending any message, keeping the process non-intrusive." },
+      { q: "How accurate is the deliverability score?", a: "Our deliverability score combines multiple signals including syntax, domain health, mailbox existence, and provider reputation to provide a reliable 0-100 confidence metric." },
+      { q: "Can I verify emails in bulk?", a: "Yes. Our batch API processes millions of email addresses with detailed reporting on valid, invalid, risky, and unknown addresses." },
+    ],
+  },
+  "ckyc-verification": {
+    slug: "ckyc-verification",
+    seoTitle: "CKYC Search & Download API — Central KYC Registry | VeriSekure",
+    metaDescription: "Search and download CKYC records from the Central KYC Registry (CERSAI). Streamline KYC onboarding with pre-verified customer data for banking and financial services.",
+    headline: "CKYC Search & Download API",
+    intro: "Access the Central KYC Registry (CERSAI) to search, fetch, and download pre-verified KYC records. Eliminate redundant KYC for banking, insurance, and financial services onboarding.",
+    parentCategory: "Identity & KYC Verification",
+    parentSlug: "identity-kyc",
+    longContent: `Central KYC (CKYC) is a centralized repository of KYC records maintained by the Central Registry of Securitisation Asset Reconstruction and Security Interest of India (CERSAI). Under RBI's KYC Master Direction, all regulated entities — banks, NBFCs, mutual funds, insurance companies, and payment aggregators — are required to upload KYC records to CKYC and search the registry before collecting fresh KYC from customers.
+
+VeriSekure's CKYC Search & Download API enables financial institutions to query the CKYC registry using customer identifiers like PAN, Aadhaar, Voter ID, Passport, or Driving License number. If a matching record exists, the API returns the CKYC Identifier (KIN) and allows downloading the complete KYC record including the customer's photograph, proof of identity, proof of address, and verified demographic details.
+
+The primary benefit of CKYC integration is the elimination of redundant KYC collection. When a customer has already completed KYC with one financial institution, their verified records are available in the CKYC registry for other institutions to access. This dramatically reduces onboarding time, improves customer experience, and cuts KYC compliance costs.
+
+For banks and NBFCs, CKYC compliance is mandatory. RBI periodically audits KYC processes and penalizes institutions that fail to upload or search CKYC records as required. Our API automates both the search and download process, ensuring compliance while minimizing manual intervention.
+
+The CKYC record contains comprehensive verified information: customer name, date of birth, gender, PAN, Aadhaar, address, photograph, and the KYC verification details including the date of verification and the entity that performed it. This rich dataset enables instant onboarding with high confidence in the customer's verified identity.
+
+Our API also supports CKYC record upload for institutions that need to submit newly verified KYC records to the central registry. The upload API validates data format, checks for completeness, and handles submission to CERSAI with confirmation receipts.
+
+For digital lending platforms and neo-banks, CKYC integration is a game-changer — enabling zero-document onboarding for customers who already have CKYC records. Combined with Aadhaar e-KYC and video KYC, CKYC creates a fully digital, fully compliant onboarding experience.
+
+VeriSekure's CKYC API handles the complexity of CERSAI's protocols, data formats, and security requirements, providing a simple RESTful interface for your development team.`,
+    features: [
+      "CKYC registry search by PAN, Aadhaar, or other IDs",
+      "Complete KYC record download with photograph",
+      "CKYC Identifier (KIN) retrieval",
+      "CKYC record upload to CERSAI",
+      "Data format validation and completeness check",
+      "Multi-identifier search support",
+      "Audit-ready compliance logging",
+      "Real-time API with enterprise reliability",
+    ],
+    useCases: [
+      "Zero-document bank account opening",
+      "NBFC and lending platform onboarding",
+      "Insurance policy issuance KYC",
+      "Mutual fund investor KYC",
+      "Payment aggregator compliance",
+      "Neo-bank digital onboarding",
+      "CKYC compliance audit preparation",
+      "Re-KYC and periodic KYC updates",
+    ],
+    faqs: [
+      { q: "What is CKYC and why is it mandatory?", a: "CKYC (Central KYC) is a centralized KYC registry maintained by CERSAI. RBI mandates all regulated entities to search CKYC before collecting fresh KYC, eliminating redundant verification across institutions." },
+      { q: "What identifiers can I use to search CKYC?", a: "You can search using PAN, Aadhaar, Voter ID, Passport, or Driving License number. The API returns matching CKYC records with the KYC Identifier (KIN)." },
+      { q: "What data does a CKYC record contain?", a: "A complete CKYC record includes customer name, DOB, gender, PAN, Aadhaar, address, photograph, and verification details including date and verifying entity." },
+      { q: "Can I upload new KYC records to CKYC?", a: "Yes. Our API supports CKYC record upload with data validation and completeness checks, handling CERSAI submission with confirmation receipts." },
+      { q: "How does CKYC improve customer onboarding?", a: "CKYC enables zero-document onboarding for customers with existing records — no need to re-collect identity proofs, reducing friction and improving conversion rates." },
+    ],
+  },
+  "uan-verification": {
+    slug: "uan-verification",
+    seoTitle: "UAN Verification API — EPFO Employment Check | VeriSekure",
+    metaDescription: "Verify Universal Account Number (UAN) from EPFO records. Confirm employment history, employer details, and PF contribution status for background verification.",
+    headline: "UAN Verification API",
+    intro: "Verify Universal Account Number (UAN) details from EPFO records — confirm employment history, current employer, PF contribution status, and member details for comprehensive background verification.",
+    parentCategory: "Employment & Education Verification",
+    parentSlug: "employment-education",
+    longContent: `UAN (Universal Account Number) verification is a powerful tool for employment background checks and income validation in India. The UAN is a 12-digit number assigned by the Employees' Provident Fund Organisation (EPFO) to every member of the EPF scheme. It acts as a permanent identifier that links all PF accounts of an employee across different employers throughout their career.
+
+VeriSekure's UAN Verification API enables businesses to verify an individual's UAN against EPFO records, confirming their employment history, current and previous employers, PF contribution status, and member details. This verification provides reliable, government-sourced employment data that is difficult to fabricate or manipulate.
+
+For HR teams and background verification companies, UAN verification is one of the most reliable methods to confirm a candidate's claimed employment history. Unlike reference checks that depend on subjective feedback, UAN data provides objective, verifiable records of which companies employed the individual, the periods of employment, and the PF contributions made by each employer.
+
+The API returns comprehensive member details including the member's name (as registered with EPFO), date of birth, date of joining the current organization, the establishment name and code, and PF contribution history. This data enables businesses to verify not just current employment but the entire employment timeline.
+
+Lending institutions use UAN verification as part of income assessment for salaried borrowers. PF contribution data serves as a proxy for salary levels — since employer PF contributions are calculated as a percentage of basic salary, the contribution amounts can be used to estimate the borrower's income bracket. This is particularly valuable when borrowers cannot provide salary slips or bank statements.
+
+For gig economy platforms and staffing companies, UAN verification helps distinguish between experienced and inexperienced workers, confirms claimed industry experience, and verifies previous employer relationships.
+
+Insurance companies use UAN data for group insurance policy verification, confirming that the employees listed under a group policy are genuinely employed by the policyholder organization.
+
+Our UAN Verification API delivers results in real-time with structured JSON responses that integrate seamlessly into existing HR systems, background verification platforms, and lending workflows. It supports both individual and bulk verification for enterprise-scale operations.`,
+    features: [
+      "UAN number validation against EPFO records",
+      "Current and previous employer verification",
+      "Employment history timeline reconstruction",
+      "PF contribution status and history",
+      "Member name and DOB confirmation",
+      "Establishment name and code retrieval",
+      "Date of joining current organization",
+      "Bulk batch processing for enterprise",
+    ],
+    useCases: [
+      "Pre-employment background verification",
+      "Employment history confirmation",
+      "Income estimation for lending",
+      "Staffing and recruitment verification",
+      "Insurance group policy validation",
+      "Government employment scheme verification",
+      "HR onboarding due diligence",
+      "Gig worker experience verification",
+    ],
+    faqs: [
+      { q: "What details does UAN verification return?", a: "The API returns member name, DOB, UAN status, current and previous employers with establishment names and codes, date of joining, and PF contribution details." },
+      { q: "Can UAN verify previous employment?", a: "Yes. Since UAN links all PF accounts across an employee's career, it provides a complete employment timeline with employer names and employment periods." },
+      { q: "How reliable is UAN data for background checks?", a: "Very reliable. UAN data comes directly from EPFO — a government source — making it extremely difficult to fabricate. PF contributions are verified employer records." },
+      { q: "Can PF data estimate income?", a: "Yes. Since employer PF contributions are calculated as a percentage of basic salary, contribution amounts provide a reliable proxy for salary estimation." },
+      { q: "Does it work for contract employees?", a: "Yes, if the contract employee is enrolled in the EPF scheme with a UAN. Contract workers with PF accounts can be verified like regular employees." },
+    ],
+  },
+  "esic-verification": {
+    slug: "esic-verification",
+    seoTitle: "ESIC Verification API — Employee Insurance Check | VeriSekure",
+    metaDescription: "Verify ESIC (Employees' State Insurance) registration and contribution status. Confirm employment and insurance coverage for background verification and compliance.",
+    headline: "ESIC Verification API",
+    intro: "Verify ESIC registration and contribution details — confirm employee insurance coverage, employer enrollment, and contribution compliance for comprehensive employment background verification.",
+    parentCategory: "Employment & Education Verification",
+    parentSlug: "employment-education",
+    longContent: `ESIC (Employees' State Insurance Corporation) verification is an essential employment and social security check for businesses hiring in India. The ESI scheme provides medical, disability, maternity, and unemployment benefits to employees earning up to ₹21,000 per month, covering over 13 crore beneficiaries across India. VeriSekure's ESIC Verification API enables businesses to verify an individual's ESI registration and contribution status against ESIC records.
+
+The API validates the ESI number (Insurance Number) and returns member details including name, date of birth, employer name, establishment code, contribution period, and current coverage status. This data provides reliable proof of employment and insurance coverage from a government source.
+
+For background verification companies and HR teams, ESIC verification serves as an additional layer of employment confirmation beyond UAN/PF verification. While PF covers employees across all salary brackets, ESIC specifically covers lower-income workers — making it particularly valuable for verifying employment in manufacturing, construction, retail, hospitality, and other sectors with predominantly lower-wage workers.
+
+ESIC verification is also important for compliance audits. Employers with 10 or more employees (in most states) are legally required to register under the ESI Act and make regular contributions. Staffing companies, labour contractors, and principal employers can use our API to verify that their vendors and contractors are ESI-compliant, reducing legal and financial risk from non-compliance.
+
+For lending institutions serving blue-collar and lower-income borrowers, ESIC data provides employment confirmation and income estimation. Since ESI contributions are calculated on actual wages, the contribution data helps lenders assess repayment capacity for personal loans, consumer finance, and micro-credit products.
+
+Healthcare providers use ESIC verification to confirm patient eligibility for ESI benefits before providing treatment. This helps hospitals and clinics manage their ESI panel operations and ensure proper reimbursement from ESIC.
+
+Government agencies use ESIC data for social security program targeting, ensuring that benefits reach the intended beneficiaries and detecting duplicate or fraudulent claims across multiple social security schemes.
+
+Our API delivers ESIC verification results in real-time with structured JSON responses. It supports individual and bulk verification, handles employer and employee-level queries, and integrates seamlessly into HR, compliance, and verification workflows.`,
+    features: [
+      "ESI number validation against ESIC records",
+      "Employee and employer details retrieval",
+      "Contribution period and status check",
+      "Coverage and benefit eligibility confirmation",
+      "Establishment code and name verification",
+      "Multi-period contribution history",
+      "Compliance audit support",
+      "Bulk batch processing for enterprise",
+    ],
+    useCases: [
+      "Employment background verification",
+      "Blue-collar worker hiring verification",
+      "Staffing company compliance audits",
+      "Lending income estimation for workers",
+      "Healthcare ESI eligibility confirmation",
+      "Government social security verification",
+      "Labour contractor compliance checking",
+      "Manufacturing workforce verification",
+    ],
+    faqs: [
+      { q: "What details does ESIC verification return?", a: "The API returns member name, DOB, ESI number status, employer/establishment details, contribution periods, and current coverage eligibility." },
+      { q: "How is ESIC different from PF/UAN verification?", a: "ESIC covers employees earning up to ₹21,000/month with health and disability benefits, while PF/UAN covers retirement savings. ESIC is particularly useful for verifying lower-income workers." },
+      { q: "Can employers verify their own compliance?", a: "Yes. Employers can use our API to verify their ESI registration, check contribution filing status, and ensure ongoing compliance with ESI Act requirements." },
+      { q: "Does ESIC data help with income estimation?", a: "Yes. ESI contributions are calculated on actual wages, making contribution data a reliable proxy for income estimation for blue-collar and lower-income workers." },
+      { q: "Is ESIC verification relevant for healthcare?", a: "Yes. Hospitals and clinics on the ESI panel use verification to confirm patient eligibility for ESI benefits before providing treatment." },
+    ],
+  },
+  "challan-verification": {
+    slug: "challan-verification",
+    seoTitle: "Challan & Traffic Violation Check API — Pending Fines | VeriSekure",
+    metaDescription: "Check pending traffic challans and violation history for any vehicle. Verify fine status, violation types, and compliance for fleet management and vehicle transactions.",
+    headline: "Challan & Traffic Violation Check API",
+    intro: "Check pending traffic challans, violation history, and fine status for any vehicle registered in India. Essential for fleet compliance, vehicle transactions, and driver risk assessment.",
+    parentCategory: "Vehicle, Driver & Mobility Verification",
+    parentSlug: "vehicle-mobility",
+    longContent: `Traffic challan and violation checking is increasingly important for fleet operators, ride-hailing platforms, vehicle financing companies, used vehicle marketplaces, and insurance firms. With India's traffic enforcement becoming increasingly digitized through e-challan systems, pending violations and unpaid fines can affect vehicle transfers, insurance claims, and fleet compliance. VeriSekure's Challan Verification API provides instant access to challan and violation data for vehicles across India.
+
+The API accepts a vehicle registration number and returns comprehensive challan information including the number of pending challans, violation types (speeding, signal jumping, wrong parking, overloading, etc.), challan dates, fine amounts, payment status, and the issuing authority. This data enables businesses to assess vehicle compliance and driver behavior before making operational or financial decisions.
+
+For fleet operators and logistics companies, challan monitoring is essential for maintaining regulatory compliance and controlling operational costs. Unpaid challans accumulate penalties and can result in vehicle seizure during enforcement drives. Our API enables fleet managers to monitor their entire vehicle fleet for pending challans, identify high-risk drivers, and take proactive action before violations escalate.
+
+Ride-hailing and delivery platforms use challan data as a driver quality signal. Drivers with frequent violations may represent higher accident risk and customer safety concerns. By integrating challan checks into driver onboarding and periodic review processes, platforms can maintain higher safety standards and reduce insurance costs.
+
+Vehicle financing companies check for pending challans before disbursing vehicle loans. Vehicles with significant unpaid fines may indicate financial distress of the current owner or create complications during hypothecation and title transfer. Used vehicle buyers can verify that no pending challans exist before completing a purchase, avoiding surprise liabilities.
+
+Insurance companies use challan data during claims processing — a history of traffic violations may affect claim assessment, especially in accident-related claims. Violation history also influences risk-based insurance pricing for commercial and personal vehicle policies.
+
+Our API covers vehicles registered across all major Indian states and union territories, providing a unified interface for nationwide challan checks. It supports individual lookups and bulk batch processing for fleet management use cases, with results returned in structured JSON format.`,
+    features: [
+      "Pending challan count and details",
+      "Violation type classification",
+      "Fine amount and payment status",
+      "Issuing authority identification",
+      "Historical violation timeline",
+      "Multi-state coverage across India",
+      "Fleet-wide bulk monitoring",
+      "Structured JSON response format",
+    ],
+    useCases: [
+      "Fleet compliance and challan management",
+      "Ride-hailing driver quality assessment",
+      "Used vehicle pre-purchase verification",
+      "Vehicle loan pre-disbursement check",
+      "Insurance risk-based pricing",
+      "Delivery partner onboarding screening",
+      "Corporate vehicle policy enforcement",
+      "Transport company regulatory compliance",
+    ],
+    faqs: [
+      { q: "What challan details does the API return?", a: "The API returns pending challan count, violation types, dates, fine amounts, payment status, and issuing authority for comprehensive violation intelligence." },
+      { q: "Does it cover all Indian states?", a: "Yes. Our API covers vehicles registered across all major Indian states and union territories through integration with e-challan systems." },
+      { q: "Can I monitor my entire fleet for challans?", a: "Yes. Our bulk API enables fleet-wide challan monitoring, helping you identify vehicles with pending violations and take proactive compliance action." },
+      { q: "Are historical violations included?", a: "Yes. The API provides violation history including past challans, their types, and payment status — not just currently pending violations." },
+      { q: "How current is the challan data?", a: "We fetch data from e-challan systems in near real-time. There may be a short delay for very recently issued challans that haven't been uploaded to the digital system." },
+    ],
+  },
+  "mobile-verification": {
+    slug: "mobile-verification",
+    seoTitle: "Mobile Number Verification API — Telecom & SIM Check | VeriSekure",
+    metaDescription: "Verify mobile numbers in real-time — confirm telecom operator, active status, prepaid/postpaid type, and subscriber details. Essential for contact verification and fraud prevention.",
+    headline: "Mobile Number Verification API",
+    intro: "Verify mobile numbers in real-time — confirm active status, telecom operator, connection type, and subscriber details. Essential for contact verification, communication delivery, and fraud prevention.",
+    parentCategory: "Identity & KYC Verification",
+    parentSlug: "identity-kyc",
+    longContent: `Mobile number verification is a critical contact validation step in customer onboarding, communication workflows, and fraud prevention. With over 1.1 billion mobile connections in India, the mobile number has become the primary customer identifier for businesses across fintech, e-commerce, healthcare, logistics, and government services. VeriSekure's Mobile Number Verification API provides comprehensive mobile validation through multiple verification layers.
+
+Our API performs real-time checks to confirm the mobile number is valid, active, and reachable. The basic validation checks the number format, identifies the telecom operator (Jio, Airtel, Vi, BSNL, etc.), determines the connection type (prepaid or postpaid), and confirms the circle/region of registration. This information helps businesses route communications efficiently and detect anomalies.
+
+Advanced mobile verification goes deeper with telecom intelligence. The API checks whether the number has been recently ported (switched operators), whether it's been recently activated (potential fraud signal), the age of the connection, and whether the SIM has been recently swapped. SIM swap detection is particularly important for preventing account takeover fraud in banking and fintech applications.
+
+For OTP-based authentication, knowing the mobile number's active status and operator before sending an OTP prevents wasted delivery attempts and improves user experience. Our API's instant validation ensures that OTPs are only sent to valid, active numbers.
+
+Lending institutions use mobile verification as part of their contact verification process. The connection age and type (prepaid vs postpaid) serve as alternative data signals for credit assessment. A postpaid connection with several years of history indicates stability, while a recently activated prepaid number may warrant additional verification.
+
+E-commerce platforms use mobile verification to validate delivery contact numbers, reducing failed deliveries due to invalid or unreachable phone numbers. Healthcare providers verify patient contact numbers to ensure appointment reminders and medical communications reach the intended recipient.
+
+For businesses operating WhatsApp Business API or RCS messaging, our mobile verification confirms that the number is capable of receiving rich messages, helping optimize communication channel selection.
+
+Our Mobile Verification API supports individual lookups and bulk batch processing, with results returned in under 1 second for real-time integration into registration forms, checkout flows, and onboarding workflows.`,
+    features: [
+      "Real-time number validity and active status",
+      "Telecom operator identification",
+      "Prepaid/postpaid connection type detection",
+      "SIM swap and porting detection",
+      "Connection age and activation date",
+      "Circle/region identification",
+      "Messaging capability detection",
+      "Bulk batch processing support",
+    ],
+    useCases: [
+      "Customer registration contact validation",
+      "OTP delivery optimization",
+      "SIM swap fraud prevention in banking",
+      "E-commerce delivery contact verification",
+      "Lending alternative data signal",
+      "Healthcare patient contact validation",
+      "Marketing contact list hygiene",
+      "WhatsApp Business number validation",
+    ],
+    faqs: [
+      { q: "What details does mobile verification return?", a: "The API returns number validity, active status, telecom operator, prepaid/postpaid type, connection age, circle/region, porting history, and SIM swap indicators." },
+      { q: "Can it detect SIM swap fraud?", a: "Yes. Our API checks for recent SIM swaps, which is a key indicator of potential account takeover fraud in banking and fintech applications." },
+      { q: "Does it identify the telecom operator?", a: "Yes. The API identifies the current operator (Jio, Airtel, Vi, BSNL, etc.) even if the number has been ported, showing both current and original operator." },
+      { q: "How fast is mobile verification?", a: "Results are returned in under 1 second, enabling real-time validation during registration and onboarding flows." },
+      { q: "Can I verify numbers in bulk?", a: "Yes. Our batch API supports bulk mobile number verification for cleaning contact databases and validating large customer lists." },
+    ],
+  },
+  "property-ownership-verification": {
+    slug: "property-ownership-verification",
+    seoTitle: "Property Ownership Verification API — Land & Title Check | VeriSekure",
+    metaDescription: "Verify property ownership, land records, title documents, and encumbrance status. Essential for real estate transactions, mortgage lending, and property due diligence.",
+    headline: "Property Ownership Verification API",
+    intro: "Verify property ownership, land records, encumbrance certificates, and title documents digitally. Essential for mortgage lending, real estate transactions, and comprehensive property due diligence.",
+    parentCategory: "Property & Land Verification",
+    parentSlug: "property-land",
+    longContent: `Property ownership verification is a critical step in real estate transactions, mortgage lending, and property-backed financial products. India's fragmented land record system — spread across municipal corporations, sub-registrar offices, and state revenue departments — makes property verification complex and time-consuming. VeriSekure's Property Ownership Verification API digitizes and automates this process, providing structured property data from multiple official sources.
+
+Our API verifies property ownership by searching official land records and registration databases. It returns the registered owner's name, property description, survey/plot number, area details, property type (residential, commercial, agricultural, industrial), and registration details including sale deed number and registration date. This data enables businesses to confirm who legally owns a property.
+
+Encumbrance Certificate (EC) verification is a key capability — the API checks whether the property has any existing mortgages, liens, legal disputes, or other encumbrances that could affect ownership transfer or collateral value. For mortgage lenders, this is the most critical check before disbursing a home loan — a clean EC confirms that the property can be legally mortgaged.
+
+Title verification goes further by examining the chain of ownership transfers for the property. A clear title means the property has been transferred through legitimate sale deeds with proper documentation at each stage. Our API traces title history to identify potential risks like disputed inheritances, unauthorized transfers, or forged documents.
+
+For housing finance companies and banks, property verification is the backbone of the mortgage underwriting process. Before approving a home loan, the lender must confirm that the property exists, the borrower owns it (or will own it upon purchase), there are no existing encumbrances, and the title is clear. Our API automates these checks, reducing the typical property verification timeline from weeks to days.
+
+Real estate platforms and proptech companies use property verification to build trust in their listings. Verified ownership adds credibility to property listings and helps buyers make informed decisions. RERA-registered projects can be cross-verified for developer credentials and project approval status.
+
+Insurance companies use property verification for property insurance underwriting — confirming ownership, property type, and valuation data before issuing policies. Government agencies use our API for property tax assessment, land acquisition planning, and urban development initiatives.
+
+VeriSekure's Property API covers properties across major Indian states with varying coverage depth depending on state-level digitization of land records.`,
+    features: [
+      "Property ownership confirmation from official records",
+      "Encumbrance certificate (EC) verification",
+      "Title chain and transfer history",
+      "Survey/plot number and area validation",
+      "Property type classification",
+      "Registration and sale deed details",
+      "RERA project cross-verification",
+      "Multi-state coverage for major states",
+    ],
+    useCases: [
+      "Mortgage and home loan underwriting",
+      "Real estate purchase due diligence",
+      "Property listing verification for platforms",
+      "Property insurance underwriting",
+      "Land acquisition planning",
+      "Property tax assessment",
+      "Construction finance collateral verification",
+      "NRI property ownership confirmation",
+    ],
+    faqs: [
+      { q: "What does property ownership verification include?", a: "It includes registered owner details, property description, survey/plot number, area, property type, registration details, and the chain of ownership transfers." },
+      { q: "Can it check for existing mortgages or liens?", a: "Yes. Our encumbrance verification checks for existing mortgages, liens, court orders, and other encumbrances that may affect the property title." },
+      { q: "How does title verification work?", a: "Title verification traces the chain of ownership transfers through official records, identifying potential risks like disputed inheritances or unauthorized transfers." },
+      { q: "Which states are covered?", a: "We cover properties across major Indian states with varying depth depending on state-level digitization. Coverage is expanding continuously as more states digitize records." },
+      { q: "How long does property verification take?", a: "Basic ownership checks return in seconds. Comprehensive title and encumbrance verification may take 1-3 business days depending on the state and record availability." },
+    ],
+  },
+  "fssai-verification": {
+    slug: "fssai-verification",
+    seoTitle: "FSSAI License Verification API — Food Business Check | VeriSekure",
+    metaDescription: "Verify FSSAI food license details in real-time — check license number, business name, validity, and food categories. Essential for food delivery and supply chain compliance.",
+    headline: "FSSAI License Verification API",
+    intro: "Verify FSSAI food safety license details in real-time — validate license number, business name, license type, validity period, and permitted food categories for food industry compliance.",
+    parentCategory: "Business / KYB Verification",
+    parentSlug: "business-kyb",
+    longContent: `FSSAI (Food Safety and Standards Authority of India) license verification is mandatory for any business involved in food manufacturing, processing, distribution, or sale in India. Every food business operator (FBO) must hold a valid FSSAI license or registration, and displaying the 14-digit license number on packaging and establishments is a legal requirement. VeriSekure's FSSAI Verification API enables businesses to validate food licenses in real-time.
+
+Our API verifies the FSSAI license number against the FSSAI database and returns comprehensive details including the licensee name, business name, license type (basic registration, state license, or central license), address, food categories permitted, license issue date, expiry date, and current license status. This information enables businesses to confirm the legitimacy and compliance status of food businesses.
+
+For food delivery platforms like Zomato and Swiggy, FSSAI verification is a regulatory requirement during restaurant onboarding. Platforms must ensure that all listed restaurants hold valid FSSAI licenses. Our API automates this verification, checking license validity and permitted food categories before a restaurant goes live on the platform.
+
+Food supply chain companies — distributors, wholesalers, and retailers — use FSSAI verification for vendor compliance. Before purchasing from a supplier or allowing a vendor to supply food products, companies verify the supplier's FSSAI license to ensure they are authorized to handle the types of food products being traded.
+
+E-commerce platforms selling food products must verify seller FSSAI licenses as part of onboarding compliance. This includes checking that the license covers the specific food categories the seller intends to list on the platform. Our API supports food category matching to automate this validation.
+
+For food manufacturers, FSSAI verification is part of raw material sourcing compliance. Manufacturers must ensure their ingredient suppliers hold valid licenses, and this verification must be documented for FSSAI inspections and audits.
+
+Hotels, catering services, and institutional food providers use FSSAI verification for their own compliance documentation as well as for verifying sub-contractors and suppliers in their food supply chain.
+
+Our FSSAI API supports individual and bulk verification, making it suitable for both single-business checks and large-scale platform onboarding. Results are returned in structured JSON format with clear license status indicators.`,
+    features: [
+      "FSSAI license number validation",
+      "Business name and licensee details",
+      "License type identification (Basic/State/Central)",
+      "Permitted food category verification",
+      "License validity and expiry date",
+      "Current license status check",
+      "Address and establishment details",
+      "Bulk verification for platform onboarding",
+    ],
+    useCases: [
+      "Food delivery platform restaurant onboarding",
+      "E-commerce food seller verification",
+      "Supply chain vendor compliance",
+      "Food manufacturing supplier verification",
+      "Hotel and catering compliance audits",
+      "Retail food product listing validation",
+      "Government food safety enforcement",
+      "Export compliance documentation",
+    ],
+    faqs: [
+      { q: "What details does FSSAI verification return?", a: "The API returns licensee name, business name, license type, address, permitted food categories, issue date, expiry date, and current license status." },
+      { q: "Can it check which food categories a license covers?", a: "Yes. The API returns the specific food categories permitted under the license, enabling automated matching against the products being sold or manufactured." },
+      { q: "Is FSSAI verification mandatory for food delivery apps?", a: "Yes. FSSAI mandates that food delivery platforms verify restaurant licenses before listing them. Our API automates this compliance requirement." },
+      { q: "How current is the FSSAI data?", a: "We verify against the FSSAI database in real-time, ensuring you get the latest license status, including any suspensions, cancellations, or renewals." },
+      { q: "Can I verify licenses in bulk?", a: "Yes. Our batch API supports bulk FSSAI verification for platforms onboarding multiple food businesses simultaneously." },
+    ],
+  },
+  "ecourt-case-search": {
+    slug: "ecourt-case-search",
+    seoTitle: "eCourt Case Search API — Court Case Lookup India | VeriSekure",
+    metaDescription: "Search eCourt database for civil and criminal cases across Indian district courts and high courts. Verify litigation history for background checks and due diligence.",
+    headline: "eCourt Case Search API",
+    intro: "Search India's eCourt database for civil and criminal cases across district courts and high courts. Verify litigation history, case status, and hearing details for comprehensive legal due diligence.",
+    parentCategory: "Legal, Court & Criminal Checks",
+    parentSlug: "legal-criminal",
+    longContent: `eCourt case search is an essential component of legal due diligence, background verification, and risk assessment in India. The eCourt system, maintained by the Department of Justice, digitizes case records from district courts and high courts across India — covering millions of civil and criminal cases. VeriSekure's eCourt Case Search API provides programmatic access to this vast database for comprehensive litigation screening.
+
+Our API enables searches by party name, advocate name, case number, CNR (Case Number Record) number, or FIR number. It returns matching case records including case type (civil/criminal), case number, filing date, court name, judge details, current status (pending/disposed/reserved), next hearing date, and party names. This comprehensive data enables businesses to assess an individual's or entity's litigation profile quickly and accurately.
+
+For lending institutions, litigation screening is a critical part of borrower assessment. Borrowers involved in active civil disputes (property disputes, recovery suits, cheque bounce cases) or criminal proceedings represent higher risk. Our API enables lenders to identify these risks before loan disbursement, protecting their portfolios from potential defaults related to legal liabilities.
+
+Background verification companies use eCourt searches as a standard component of employment screening. Employers — especially in regulated industries like banking, financial services, and government — need to know if a candidate has any pending criminal cases or significant civil litigation that could affect their suitability for the role.
+
+Real estate professionals use eCourt case search to check for property-related litigation. Before a property transaction, buyers and lenders need to verify that the property isn't involved in ownership disputes, partition suits, or injunction orders that could affect the transaction.
+
+For corporate due diligence, our API helps businesses assess potential business partners, vendors, and acquisition targets by checking their litigation history. Companies with excessive litigation or specific types of legal disputes (fraud, regulatory violations) may represent elevated business risk.
+
+Insurance companies use litigation search during large claims processing, checking whether claimants or policyholders have patterns of litigation that might indicate fraudulent behavior.
+
+Our eCourt API covers district courts across all Indian states and high courts, with case records dating back several years depending on the court's digitization timeline. The API supports fuzzy name matching to handle spelling variations and provides structured results for easy integration.`,
+    features: [
+      "Multi-criteria case search (name, CNR, FIR, case number)",
+      "Civil and criminal case coverage",
+      "District court and high court records",
+      "Case status and hearing date tracking",
+      "Party name and advocate details",
+      "Historical case record access",
+      "Fuzzy name matching for variations",
+      "Structured JSON response format",
+    ],
+    useCases: [
+      "Borrower litigation screening for lending",
+      "Pre-employment legal background check",
+      "Property dispute verification",
+      "Corporate due diligence for M&A",
+      "Vendor and partner risk assessment",
+      "Insurance claim investigation",
+      "Regulatory compliance screening",
+      "Tenant screening for property management",
+    ],
+    faqs: [
+      { q: "What courts does the eCourt search cover?", a: "Our API covers district courts across all Indian states and high courts, accessing the eCourt database maintained by the Department of Justice." },
+      { q: "Can I search by name?", a: "Yes. The API supports searches by party name, advocate name, case number, CNR number, and FIR number for flexible case discovery." },
+      { q: "Does it show case status and next hearing?", a: "Yes. For pending cases, the API returns current case status, next hearing date, court name, and judge details for ongoing case tracking." },
+      { q: "How far back do records go?", a: "Record availability depends on the court's digitization timeline. Most district courts have records from the past 5-15 years, with coverage expanding continuously." },
+      { q: "Can it detect property-related cases?", a: "Yes. By searching party names or property identifiers, you can identify property disputes, partition suits, and injunction orders related to specific properties." },
+    ],
+  },
+  "address-verification": {
+    slug: "address-verification",
+    seoTitle: "Address Verification API — India Address Validation | VeriSekure",
+    metaDescription: "Verify and standardize Indian addresses in real-time. Match addresses against official records, validate pincodes, and confirm residential or business addresses.",
+    headline: "Address Verification API",
+    intro: "Verify, standardize, and match Indian addresses in real-time. Validate against official records, confirm pincodes, and ensure accurate address data for deliveries, KYC, and compliance.",
+    parentCategory: "Identity & KYC Verification",
+    parentSlug: "identity-kyc",
+    longContent: `Address verification is a fundamental requirement across lending, e-commerce, logistics, insurance, and KYC compliance in India. Inaccurate addresses cause failed deliveries, loan defaults, compliance violations, and fraud. India's addressing system — with its mix of structured and unstructured formats, regional language variations, and incomplete postal infrastructure in rural areas — makes address verification particularly challenging. VeriSekure's Address Verification API provides comprehensive address validation, standardization, and matching capabilities.
+
+Our API performs multi-layer address verification. Pincode validation confirms that the pincode is valid and corresponds to the stated city, state, and post office. Address format standardization converts unstructured address text into a structured format with proper fields for house number, street, locality, city, district, state, and pincode — improving data quality for downstream processes.
+
+Address matching compares a submitted address against reference addresses from official sources like Aadhaar, Voter ID, or utility records. The API uses intelligent matching algorithms that account for common Indian address variations — abbreviations (Rd vs Road, St vs Street), building name variations, landmark references, and regional language transliterations. A match confidence score enables businesses to set thresholds for automated address acceptance.
+
+For lending institutions, address verification is a mandatory KYC requirement. RBI mandates that customer addresses be verified against officially valid documents. Our API automates this by comparing the submitted address against Aadhaar or Voter ID address data, generating a match score and flagging significant discrepancies.
+
+E-commerce and logistics companies use address verification to reduce delivery failures. By validating and standardizing addresses at the point of order, businesses can catch errors before dispatch — saving shipping costs and improving customer satisfaction. Our API also provides serviceability checks, confirming whether a given address is serviceable by major logistics providers.
+
+Insurance companies verify customer addresses during policy issuance and claims processing. Address misrepresentation can affect policy pricing (especially for property and vehicle insurance) and claims validity.
+
+For businesses operating in rural India, address verification is especially challenging due to the lack of standardized addressing. Our API handles rural addressing patterns, village names, gram panchayat references, and landmark-based addressing that are common in non-urban areas.
+
+Our Address API supports individual and bulk verification, handling millions of address records for database cleaning and periodic re-verification campaigns.`,
+    features: [
+      "Real-time pincode and postal validation",
+      "Address format standardization",
+      "Intelligent address matching with confidence scoring",
+      "Multi-language and transliteration support",
+      "Aadhaar and Voter ID address cross-verification",
+      "Rural and urban address handling",
+      "Logistics serviceability check",
+      "Bulk address cleaning and processing",
+    ],
+    useCases: [
+      "KYC address verification compliance",
+      "E-commerce delivery address validation",
+      "Lending customer address confirmation",
+      "Insurance address risk assessment",
+      "Logistics route optimization",
+      "Customer database address cleaning",
+      "Rural banking address verification",
+      "Government welfare scheme targeting",
+    ],
+    faqs: [
+      { q: "How does address matching work?", a: "Our AI-powered matching compares submitted addresses against official records, handling abbreviations, regional variations, and transliterations with a confidence score for decision-making." },
+      { q: "Can it handle rural Indian addresses?", a: "Yes. Our API handles rural addressing patterns including village names, gram panchayat references, and landmark-based addressing common in non-urban India." },
+      { q: "Does it validate pincodes?", a: "Yes. The API validates pincodes against India Post records and confirms correspondence with the stated city, state, and post office area." },
+      { q: "Can it standardize messy address data?", a: "Yes. The API converts unstructured address text into standardized fields — house number, street, locality, city, district, state, and pincode." },
+      { q: "Does it integrate with KYC verification?", a: "Yes. The API can cross-verify submitted addresses against Aadhaar and Voter ID address data for KYC compliance." },
+    ],
+  },
+  "ifsc-verification": {
+    slug: "ifsc-verification",
+    seoTitle: "IFSC Code Verification API — Bank Branch Lookup | VeriSekure",
+    metaDescription: "Verify IFSC codes and retrieve bank branch details instantly. Get bank name, branch address, MICR code, and contact information for payment processing.",
+    headline: "IFSC Code Verification API",
+    intro: "Verify IFSC codes in real-time and retrieve complete bank branch details — bank name, branch address, MICR code, and contact information for seamless payment processing and bank validation.",
+    parentCategory: "Financial & Banking Verification",
+    parentSlug: "financial-banking",
+    longContent: `IFSC (Indian Financial System Code) verification is a fundamental check in payment processing, bank account validation, and financial transaction routing. The 11-character IFSC code uniquely identifies every bank branch in India that participates in NEFT, RTGS, and IMPS transactions. VeriSekure's IFSC Verification API provides instant IFSC validation with complete branch details.
+
+Our API validates the IFSC code format and checks it against the RBI-maintained IFSC database. For valid codes, it returns the bank name, branch name, full branch address, city, state, district, MICR code, contact number, and the types of electronic payment systems supported by the branch (NEFT, RTGS, IMPS, UPI). This comprehensive data ensures accurate payment routing and helps prevent failed transactions.
+
+For payment processors and fintech companies, IFSC verification is essential for validating beneficiary bank details before processing fund transfers. An invalid or incorrect IFSC code results in failed transactions, delayed settlements, and poor customer experience. Our API catches these errors at the point of data entry, before any transaction is initiated.
+
+Lending platforms use IFSC verification during loan disbursement setup — confirming that the borrower's bank branch details are accurate before scheduling disbursements. Payroll processors verify IFSC codes when onboarding new employees, ensuring salary credits reach the correct bank branch without errors.
+
+E-commerce platforms and marketplaces verify seller bank details including IFSC codes during onboarding, preventing payment settlement failures that can disrupt seller relationships and platform operations.
+
+Our IFSC database is updated regularly to reflect bank mergers, branch closures, and new branch openings. When banks merge (as seen with several public sector bank mergers), old IFSC codes are mapped to new codes, and our API handles this transition seamlessly.
+
+The API also supports reverse lookup — searching for IFSC codes by bank name, branch name, or city. This is useful when customers know their bank and branch but not the exact IFSC code, enabling auto-complete functionality in banking forms.
+
+VeriSekure's IFSC API delivers results in under 100 milliseconds with 99.99% uptime, making it suitable for high-volume payment processing environments. It supports individual and bulk lookups with simple RESTful endpoints.`,
+    features: [
+      "Real-time IFSC code format validation",
+      "Complete bank branch details retrieval",
+      "MICR code and contact information",
+      "Payment system support check (NEFT/RTGS/IMPS)",
+      "Bank merger IFSC code mapping",
+      "Reverse lookup by bank/branch/city",
+      "Ultra-fast response under 100ms",
+      "Regular database updates for accuracy",
+    ],
+    useCases: [
+      "Payment beneficiary validation",
+      "Loan disbursement bank verification",
+      "Payroll processing bank detail check",
+      "E-commerce seller settlement setup",
+      "Bill payment routing",
+      "Government subsidy disbursement",
+      "Banking form auto-complete",
+      "Financial reconciliation and audit",
+    ],
+    faqs: [
+      { q: "What details does IFSC verification return?", a: "The API returns bank name, branch name, full address, city, state, MICR code, contact number, and supported payment systems (NEFT, RTGS, IMPS, UPI)." },
+      { q: "Does it handle bank mergers?", a: "Yes. Our database maps old IFSC codes from merged banks to their new codes, ensuring transactions are routed correctly even after bank mergers." },
+      { q: "Can I search by bank and branch name?", a: "Yes. Our reverse lookup feature lets you search for IFSC codes by bank name, branch name, or city — useful for auto-complete in banking forms." },
+      { q: "How fast is IFSC verification?", a: "IFSC lookups return in under 100 milliseconds, making it one of our fastest APIs — suitable for real-time payment processing environments." },
+      { q: "How often is the IFSC database updated?", a: "Our IFSC database is updated regularly to reflect new branches, closures, and bank mergers, ensuring you always have the latest routing information." },
+    ],
+  },
 };
